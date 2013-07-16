@@ -1,0 +1,7 @@
+cells=c("EC","Ei1") 
+a=read.table("chip_to_plot.txt",header=T)
+plot(a)
+b=read.table(paste(cells[1],"_points.txt",sep="")) 
+points(b,col="red")
+b=read.table(paste(cells[2],"_points.txt",sep="")) 
+points(b,col="blue")
