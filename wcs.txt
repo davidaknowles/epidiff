@@ -1,0 +1,130 @@
+No subsampling -----------------------------------------------
+
+Enhancers = (H3K27ac and H3K4me1) or (H3K27ac and p300)
+    9860    29580   235864 Ci1-GIIAX_EnhancerMerged
+   29004    87012   693704 Ci2-GIIAX_EnhancerMerged
+   57970   173910  1388548 CPC-GIIAX_EnhancerMerged
+   57425   172275  1374941 EC2-GIIAX_EnhancerMerged
+   63648   190944  1524159 EC-GIIAX_EnhancerMerged
+   31718    95154   758462 Ei1-GIIAX_EnhancerMerged
+     643     1929    15365 Ei2-GIIAX_EnhancerMerged
+   48696   146088  1167636 FB1-GIIAX_EnhancerMerged
+   69942   209826  1675213 FB2-GIIAX_EnhancerMerged
+   22199    66597   530471 Fi1-GIIAX_EnhancerMerged
+   38993   116979   928469 Fi2-GIIAX_EnhancerMerged
+   13269    39807   317376 Ni1-GIIAX_EnhancerMerged
+   38835   116505   930991 NSC-GIIAX_EnhancerMerged
+
+Enhancers = p300 + (H3K27ac within 2kb) + (H3K4me1 within 2kb) - H3K4me3
+    22     110    1006 Ci1-GIIAX_EnhancerMerged2
+   3177   15885  146238 Ci2-GIIAX_EnhancerMerged2
+  21664  108320 1001516 CPC-GIIAX_EnhancerMerged2
+  13483   67415  619520 EC2-GIIAX_EnhancerMerged2
+   4690  23450 216835 EC-GIIAX_EnhancerMerged2
+   4085   20425  187949 Ei1-GIIAX_EnhancerMerged2
+      0       0       0 Ei2-GIIAX_EnhancerMerged2
+   4353   21765  200619 FB1-GIIAX_EnhancerMerged2
+  14323   71615  660171 FB2-GIIAX_EnhancerMerged2
+   1227    6135   56312 Fi1-GIIAX_EnhancerMerged2
+  11493   57465  525070 Fi2-GIIAX_EnhancerMerged2
+    160     800    7407 Ni1-GIIAX_EnhancerMerged2
+   3532   17660  162898 NSC-GIIAX_EnhancerMerged2
+
+p300
+   2204    11020    97773 Ci1-GIIAX_p300_k_peaks.bed
+   31515   157575  1437330 Ci2-GIIAX_p300_k_peaks.bed
+   31070   155350  1418017 CPC2-GIIAX_p300_k_peaks.bed
+   24770   123850  1127167 CPC-GIIAX_p300_k_peaks.bed
+   32040   160200  1463623 EC2-GIIAX_p300_k_peaks.bed
+   18993    94965   859660 EC-GIIAX_p300_k_peaks.bed
+   14933    74665   674783 Ei1-GIIAX_p300_k_peaks.bed
+     577     2885    25206 Ei2-GIIAX_p300_k_peaks.bed
+   29064   145320  1324532 FB1-GIIAX_p300_k_peaks.bed
+   44065   220325  2013180 FB2-GIIAX_p300_k_peaks.bed
+   19129    95645   867671 Fi1-GIIAX_p300_k_peaks.bed
+   48150   240750  2192461 Fi2-GIIAX_p300_k_peaks.bed
+    4200    21000   187334 Ni1-GIIAX_p300_k_peaks.bed
+   26314   131570  1197522 NSC-GIIAX_p300_k_peaks.bed
+
+H3K27ac
+   41071   205355  1870064 Ci1-GIIAX_H3K27ac_k_peaks.bed
+   46730   233650  2132525 Ci2-GIIAX_H3K27ac_k_peaks.bed
+   63753   318765  2918887 CPC2-GIIAX_H3K27ac_k_peaks.bed
+   57074   285370  2615863 CPC-GIIAX_H3K27ac_k_peaks.bed
+   54284   271420  2482967 EC2-GIIAX_H3K27ac_k_peaks.bed
+   68079   340395  3120535 EC-GIIAX_H3K27ac_k_peaks.bed
+   54041   270205  2468193 Ei1-GIIAX_H3K27ac_k_peaks.bed
+   48292   241460  2200797 Ei2-GIIAX_H3K27ac_k_peaks.bed
+   60755   303775  2783053 FB1-GIIAX_H3K27ac_k_peaks.bed
+   72445   362225  3319412 FB2-GIIAX_H3K27ac_k_peaks.bed
+   48081   240405  2192987 Fi1-GIIAX_H3K27ac_k_peaks.bed
+   47701   238505  2180205 Fi2-GIIAX_H3K27ac_k_peaks.bed
+   45235   226175  2062250 Ni1-GIIAX_H3K27ac_k_peaks.bed
+   52791   263955  2416010 NSC-GIIAX_H3K27ac_k_peaks.bed
+
+H3K4me1
+   13735    68675   610342 Ci1-GIIAX_H3K4me1_k_peaks.bed
+   16416    82080   735331 Ci2-GIIAX_H3K4me1_k_peaks.bed
+   22076   110380   994938 CPC2-GIIAX_H3K4me1_k_peaks.bed
+   97186   485930  4437050 CPC-GIIAX_H3K4me1_k_peaks.bed
+   80566   402830  3663799 EC2-GIIAX_H3K4me1_k_peaks.bed
+   78964   394820  3584699 EC-GIIAX_H3K4me1_k_peaks.bed
+   38581   192905  1746246 Ei1-GIIAX_H3K4me1_k_peaks.bed
+       9       45      372 Ei2-GIIAX_H3K4me1_k_peaks.bed
+   40243   201215  1817700 FB1-GIIAX_H3K4me1_k_peaks.bed
+   68943   344715  3135981 FB2-GIIAX_H3K4me1_k_peaks.bed
+   14116    70580   629476 Fi1-GIIAX_H3K4me1_k_peaks.bed
+   40040   200200  1813602 Fi2-GIIAX_H3K4me1_k_peaks.bed
+   15840    79200   705254 Ni1-GIIAX_H3K4me1_k_peaks.bed
+   25969   129845  1169390 NSC-GIIAX_H3K4me1_k_peaks.bed
+
+H3K4me3
+   34300   171500  1573126 Ci1-GIIAX_H3K4me3_k_peaks.bed
+   30834   154170  1415274 Ci2-GIIAX_H3K4me3_k_peaks.bed
+   27534   137670  1262459 CPC2-GIIAX_H3K4me3_k_peaks.bed
+   31609   158045  1449157 CPC-GIIAX_H3K4me3_k_peaks.bed
+   37840   189200  1730407 EC2-GIIAX_H3K4me3_k_peaks.bed
+   36447   182235  1657930 EC-GIIAX_H3K4me3_k_peaks.bed
+   31966   159830  1469188 Ei1-GIIAX_H3K4me3_k_peaks.bed
+   31552   157760  1450024 Ei2-GIIAX_H3K4me3_k_peaks.bed
+   33392   166960  1529927 FB1-GIIAX_H3K4me3_k_peaks.bed
+   32210   161050  1477406 FB2-GIIAX_H3K4me3_k_peaks.bed
+   29982   149910  1378558 Fi1-GIIAX_H3K4me3_k_peaks.bed
+   30257   151285  1388811 Fi2-GIIAX_H3K4me3_k_peaks.bed
+   31378   156890  1437994 Ni1-GIIAX_H3K4me3_k_peaks.bed
+   27468   137340  1257222 NSC-GIIAX_H3K4me3_k_peaks.bed
+
+
+Cutoff=2 -----------------------------------------------
+
+Enhancers = (H3K27ac and H3K4me1) or (H3K27ac and p300)
+  25789   77367  616809 Ci1-GIIAX_EnhancerMerged
+  27404   82212  655287 Ci2-GIIAX_EnhancerMerged
+  58686  176058 1406081 CPC-GIIAX_EnhancerMerged
+  48567  145701 1162647 EC2-GIIAX_EnhancerMerged
+  51483  154449 1232698 EC-GIIAX_EnhancerMerged
+  23041   69123  550663 Ei1-GIIAX_EnhancerMerged
+  12723   38169  304347 Ei2-GIIAX_EnhancerMerged
+  36475  109425  875028 FB1-GIIAX_EnhancerMerged
+  52953  158859 1268221 FB2-GIIAX_EnhancerMerged
+  17028   51084  406863 Fi1-GIIAX_EnhancerMerged
+  34515  103545  822012 Fi2-GIIAX_EnhancerMerged
+  22123   66369  529123 Ni1-GIIAX_EnhancerMerged
+  22123   66369  529123 Ni2-GIIAX_EnhancerMerged
+  34210  102630  820286 NSC-GIIAX_EnhancerMerged
+
+p300
+   2514    7542   60073 Ci1-GIIAX_p300_Intersected
+  30711   92133  734558 Ci2-GIIAX_p300_Intersected
+  26459   79377  633945 CPC2-GIIAX_p300_Intersected
+  20660   61980  495241 CPC-GIIAX_p300_Intersected
+  27633   82899  661600 EC2-GIIAX_p300_Intersected
+  15023   45069  359347 EC-GIIAX_p300_Intersected
+  12193   36579  291496 Ei1-GIIAX_p300_Intersected
+    387    1161    9245 Ei2-GIIAX_p300_Intersected
+  24015   72045  575880 FB1-GIIAX_p300_Intersected
+  29277   87831  700232 FB2-GIIAX_p300_Intersected
+  16216   48648  387892 Fi1-GIIAX_p300_Intersected
+  40857  122571  974330 Fi2-GIIAX_p300_Intersected
+   4637   13911  110803 Ni1-GIIAX_p300_Intersected
+  26733   80199  640820 NSC-GIIAX_p300_Intersected
