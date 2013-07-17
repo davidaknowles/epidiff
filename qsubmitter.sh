@@ -1,0 +1,1 @@
+qsub -m ea -M dak33@stanford.edu -cwd -t 1:84 -l h_vmem=8G -R y ./run_quest_only.sh
