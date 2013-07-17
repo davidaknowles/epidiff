@@ -1,4 +1,4 @@
-from mycompare import compare
+from mycompare import *
 import sys, os, pickle
 path="/srv/gs1/projects/snyder/imk1/P01Project/ChIPseqData/"
 resultsDir=path+"pickled_counts/"
@@ -41,7 +41,7 @@ with open(sample2,"rb") as f:
 with open(background2,"rb") as f:
     background2=pickle.load(f)
 
-res=compare(sample1,background1,sample2,background2)
+res=compare2(sample1,background1,sample2,background2)
 
 outputfileName=resultsDir+"%s_%s_%s.pickle"%(cell_line1,cell_line2,mark)
 with open(outputfileName,"wb") as f:
