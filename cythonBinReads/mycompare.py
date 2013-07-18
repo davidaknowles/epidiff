@@ -84,11 +84,11 @@ def compare(sample1,background1,sample2,background2):
     return res
 
 
-def compare2(sample1,background1,sample2,background2):
+def compare2(sample1,background1,sample2,background2,pa=.9):
     res={}
     for chromo in sample1:
         print chromo
-        res[chromo]=detectDifference2( array( [[sample1[chromo],background1[chromo]],[sample2[chromo],background2[chromo]]] ))
+        res[chromo]=detectDifference2( array( [[sample1[chromo],background1[chromo]],[sample2[chromo],background2[chromo]]] ),pa=pa)
     return res
 
 if __name__=="__main__":
