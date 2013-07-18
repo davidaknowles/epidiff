@@ -4,7 +4,7 @@ import pylab
 #cell2="Ei1"
 cell1=sys.argv[1]
 cell2=sys.argv[2]
-basedir="/afs/cs.stanford.edu/u/davidknowles/P01Project/QuEST_results/"
+basedir="/afs/cs.stanford.edu/u/davidknowles/scratch/p01project/QuEST_results/"
 #suffix="_enhancers_noH3K4me3.bed"
 suffix="_enhancers_no_merged.bed"
 enhancer_file1=basedir+cell1+suffix

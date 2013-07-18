@@ -34,22 +34,41 @@ def detectDifference(o,a=0.01,b=0.01):
     logPOgivenAis0=log(sum(exp([pSameL[0]+logpa,pDiffL[0]+logpNotA])))+log(sum(exp([pSameL[1]+logpa,pDiffL[1]+logpNotA])))
     return logPOgivenAis0-logPOgivenAis1
 
-def detectDifference2(o,a=0.01,b=0.01):
+def compareToBackground(s,a,b):
+    pSameL=evidence2( s, a, b )
+    pDiffL=sum( [evidence2([x], a, b) for x in s], axis=0 )
+    return (pSameL,pDiffL)
+
+def detectDifference2(o,a=0.01,b=0.01,pa=0.5):
     ### o[i][j]: i indexes the sample, j=0 for background, j=1 for sample (or visa versa)
     chrLen=len(o[0][0])
     pSameL=zeros((len(o),chrLen))
     pDiffL=zeros((len(o),chrLen))
     for i in range(2):
-        s=o[i]
-        pSameL[i,:]=evidence2( s, a, b )
-        pDiffL[i,:]=sum( [evidence2([x], a, b) for x in s], axis=0 )
-    pa=.5
+        (pSameL[i,:],pDiffL[i,:])=compareToBackground(o[i],a,b)
     logpa=log(pa)
     logpNotA=log(1.0-pa)
 #    pdb.set_trace()
     logPOgivenAis1=log(sum(exp([sum(pSameL,axis=0)+logpa,sum(pDiffL,axis=0)+logpNotA]),axis=0))
     logPOgivenAis0=log(sum(exp([pSameL[0]+logpa,pDiffL[0]+logpNotA]),axis=0))+log(sum(exp([pSameL[1]+logpa,pDiffL[1]+logpNotA]),axis=0))
     return logPOgivenAis0-logPOgivenAis1
+
+def detectDifferenceRangePa(o,parange,a=0.01,b=0.01):
+    ### o[i][j]: i indexes the sample, j=0 for background, j=1 for sample (or visa versa)
+    chrLen=len(o[0][0])
+    pSameL=zeros((len(o),chrLen))
+    pDiffL=zeros((len(o),chrLen))
+    for i in range(2):
+        (pSameL[i,:],pDiffL[i,:])=compareToBackground(o[i],a,b)
+    res=zeros(len(parange))
+    for i in range(len(parange)):
+        pa=parange[i]
+        logpa=log(pa)
+        logpNotA=log(1.0-pa)
+        logPOgivenAis1=log(sum(exp([sum(pSameL,axis=0)+logpa,sum(pDiffL,axis=0)+logpNotA]),axis=0))
+        logPOgivenAis0=log(sum(exp([pSameL[0]+logpa,pDiffL[0]+logpNotA]),axis=0))+log(sum(exp([pSameL[1]+logpa,pDiffL[1]+logpNotA]),axis=0))
+        res[i]=sum(logPOgivenAis0)-sum(logPOgivenAis1)
+    return res
 
 #o=array([[100,150],[200,300]])
 #print("Log evidence for difference: %f" % detectDifference(o)
