@@ -41,18 +41,19 @@ with open(sample2,"rb") as f:
 with open(background2,"rb") as f:
     background2=pickle.load(f)
 
-res=compare2(sample1,background1,sample2,background2,pa=0.9999)
+#res=compare2(sample1,background1,sample2,background2,pa=0.9999)
+res=compareSum(sample1,background1,sample2,background2)
 
-outputfileName=resultsDir+"%s_%s_%s.pickle"%(cell_line1,cell_line2,mark)
-with open(outputfileName,"wb") as f:
-  pickle.dump(res,f)
+# outputfileName=resultsDir+"%s_%s_%s.pickle"%(cell_line1,cell_line2,mark)
+# with open(outputfileName,"wb") as f:
+#   pickle.dump(res,f)
 
-summary={}
-for chromo in res:
-  summary[chromo]=sum( res[chromo] )
+# summary={}
+# for chromo in res:
+#   summary[chromo]=sum( res[chromo] )
 
 outputfileName=resultsDir+"%s_%s_%s_summary.pickle"%(cell_line1,cell_line2,mark)
 with open(outputfileName,"wb") as f:
-  pickle.dump(summary,f)
+  pickle.dump(res,f)
 
 print "Finished"

@@ -104,11 +104,11 @@ def compare2(sample1,background1,sample2,background2,pa=.9):
     return res
 
 
-def compareSum(sample1,background1,sample2,background2,pa=.999):
+def compareSum(sample1,background1,sample2,background2,priorSame=.999):
     res={}
     for chromo in sample1:
         print chromo
-        res[chromo]=sumOfDifferences( array( [[sample1[chromo],background1[chromo]],[sample2[chromo],background2[chromo]]] ),pa=pa)
+        res[chromo]=sumOfDifferences( array( [[sample1[chromo],background1[chromo]],[sample2[chromo],background2[chromo]]] ),priorSame=priorSame)
     return res
 
 if __name__=="__main__":
