@@ -66,7 +66,10 @@ def test_vs_background(data):
         grid(1,which='major')
         ylabel(ba) 
         subplot(7,1,5+i)
-        plot( (b-a)[:n] )
+        pa=0.01
+        logoddsDiff=(b-a)[:n]+log(pa)-log(1.0-pa)
+        probdiff=1.0/(1.0+exp(-logoddsDiff))
+        plot( probdiff )
         ylabel('diff %d'%(i+1))
         grid(1,which='major')
     
@@ -76,6 +79,15 @@ def test_vs_background(data):
     plot( res[:n] )
     ylabel('global diff')
     show()
+
+def sumTest(data):
+    chromo='chr1'
+    n=1000000
+    res=sumOfDifferences( array( [[data['s1'][chromo][:n],data['b1'][chromo][:n]],[data['s2'][chromo][:n],data['b2'][chromo][:n]]] ))
+    print res
+    res=sumOfDifferences( array( [[data['s1'][chromo][:n],data['b1'][chromo][:n]],[data['s2']['chr2'][:n],data['b2']['chr2'][:n]]] ))
+    print res
+    return res
 
 def varyPa(data):
     parange=array([ 0.01, 0.1, 0.5, 0.8, 0.9, .95, .99, .995, .999, .9999, .99999 ])
@@ -94,6 +106,8 @@ def varyPa2(data):
     res2=detectDifferenceRangePa(array( [[data['s1'][chromo][:n],data['b1'][chromo][:n]],[data['s2']['chr2'][:n],data['b2']['chr2'][:n]]] ), parange)
     plot( parange, res2 ) 
     show()
+
+
 
 if __name__=="__main__":
     test()

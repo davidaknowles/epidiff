@@ -53,6 +53,18 @@ def detectDifference2(o,a=0.01,b=0.01,pa=0.5):
     logPOgivenAis0=log(sum(exp([pSameL[0]+logpa,pDiffL[0]+logpNotA]),axis=0))+log(sum(exp([pSameL[1]+logpa,pDiffL[1]+logpNotA]),axis=0))
     return logPOgivenAis0-logPOgivenAis1
 
+def logistic(x):
+    return 1.0/(1.0+exp(-x))
+
+def sumOfDifferences(o,a=0.01,b=0.01,priorSame=0.999,diffCost=1,sameAndOneCost=-10):
+    probDiff={}
+    for i in range(2):
+        (pSameL,pDiffL)=compareToBackground(o[i],a,b)
+        pSameL+=log(priorSame) 
+        pDiffL+=log(1.0-priorSame) 
+        probDiff[i]=logistic(pDiffL-pSameL)
+    return sum( sameAndOneCost*probDiff[0]*probDiff[1] + diffCost*( probDiff[0]+probDiff[1]-2.0 * probDiff[0]*probDiff[1]))
+
 def detectDifferenceRangePa(o,parange,a=0.01,b=0.01):
     ### o[i][j]: i indexes the sample, j=0 for background, j=1 for sample (or visa versa)
     chrLen=len(o[0][0])
@@ -89,6 +101,14 @@ def compare2(sample1,background1,sample2,background2,pa=.9):
     for chromo in sample1:
         print chromo
         res[chromo]=detectDifference2( array( [[sample1[chromo],background1[chromo]],[sample2[chromo],background2[chromo]]] ),pa=pa)
+    return res
+
+
+def compareSum(sample1,background1,sample2,background2,pa=.999):
+    res={}
+    for chromo in sample1:
+        print chromo
+        res[chromo]=sumOfDifferences( array( [[sample1[chromo],background1[chromo]],[sample2[chromo],background2[chromo]]] ),pa=pa)
     return res
 
 if __name__=="__main__":
