@@ -20,15 +20,16 @@ def great_query(fn):
     df=pandas.io.parsers.read_table(request,comment="#",skiprows=5,header=None,names=names)
     os.system("rm " + tempfn)
     request.close()
-    #f=df[(df['HyperFdrQ']<0.1) & (df['BinomFdrQ'] < 0.1) & (df['RegionFoldEnrich'] > 2.0) & (df['Ontology']=="GO Biological Process")]
-    f=df[(df['RegionFoldEnrich'] > 2.0) & (df['Ontology']=="GO Biological Process")]
+    f=df[(df['HyperFdrQ']<0.1) & (df['BinomFdrQ'] < 0.1) & (df['RegionFoldEnrich'] > 2.0) & (df['Ontology']=="GO Biological Process")]
+    #f=df[(df['RegionFoldEnrich'] > 2.0) & (df['Ontology']=="GO Biological Process")]
     f=f.sort('BinomP')
     return f
 
-cellTypeListFile = open("/afs/cs.stanford.edu/u/imk1/P01Project/src/cellList.txt")
-first_time=1
 
 if __name__=="__main__":
+    cellTypeListFile = open("/afs/cs.stanford.edu/u/imk1/P01Project/src/cellList.txt")
+    first_time=1
+
     for cell in cellTypeListFile:
         celln=cell.strip()
         #fn="/afs/cs.stanford.edu/u/imk1/P01Project/MACSResults/PartialPeaks2/%s-GIIAX_EnhancerMerged"  \% celln

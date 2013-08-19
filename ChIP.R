@@ -202,7 +202,7 @@ calculate.shift<-function(D,Genome)
 			try(SH[i]<-ksmooth(C$lag,C$acf,kernel="normal",bandwidth=100)$x[ksmooth(C$lag,C$acf,kernel="normal",bandwidth=100)$y==max(ksmooth(C$lag,C$acf,kernel="normal",bandwidth=100)$y)])
 			 print(paste(i,SH[i],sep=":"))
 		}
-		return(median(SH[SH>40]))
+		return(median(SH[SH>40],na.rm=T))
 		
 	}
 	
@@ -323,10 +323,10 @@ crange<-function(a,A){#this function takes UCSC coordinates string and converts 
 					end<-strtoi(paste(unlist(strsplit(b[3],",")), collapse=""));#
 					return( (INDEX(chr,start,A)):(INDEX(chr,end,A))  )}
 
- CHR<-function(index, genome) genome$chr[findInterval(index,genome$cumulative)]; CHRV<-Vectorize(CHR, "index") # returns chromosome name given index/position in KDE data and genome data
- POS<-function(index, genome,step)round( step*(index - genome$cumulative[findInterval(index,genome$cumulative)])-step/2); POSV<-Vectorize(POS, "index") # returns position name given index/position in KDE data and genome data
+ CHR<-function(index, genome) genome$chr[findInterval(index,genome$cum)]; CHRV<-Vectorize(CHR, "index") # returns chromosome name given index/position in KDE data and genome data
+ POS<-function(index, genome,step)round( step*(index - genome$cum[findInterval(index,genome$cum)])-step/2); POSV<-Vectorize(POS, "index") # returns position name given index/position in KDE data and genome data
 
-INDEX<-function(chr,pos,genome) (ceiling(pos/10)+genome$cumulative[genome$chr==chr]);INDEXV<-Vectorize(INDEX, c("chr", "pos")) # returns index/position given chromosome position and genome
+INDEX<-function(chr,pos,genome,step) (ceiling(pos/step)+genome$cum[genome$chr==chr]);INDEXV<-Vectorize(INDEX, c("chr", "pos")) # returns index/position given chromosome position and genome
 
 write.bed<-function(a, file)write.table(a, file=file, sep="\t", row.name=FALSE, col.names=FALSE, quote=FALSE)
 
