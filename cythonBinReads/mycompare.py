@@ -34,7 +34,7 @@ def detectDifference(o,a=0.01,b=0.01):
     logPOgivenAis0=log(sum(exp([pSameL[0]+logpa,pDiffL[0]+logpNotA])))+log(sum(exp([pSameL[1]+logpa,pDiffL[1]+logpNotA])))
     return logPOgivenAis0-logPOgivenAis1
 
-def compareToBackground(s,a,b):
+def compareToBackground(s,a=0.01,b=0.01):
     pSameL=evidence2( s, a, b )
     pDiffL=sum( [evidence2([x], a, b) for x in s], axis=0 )
     return (pSameL,pDiffL)
