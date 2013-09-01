@@ -12,12 +12,19 @@ for (cell.i in 1:length(cells)){
     for (ai in a) {
 	load(paste(path,ai,"_H3K27ac_peaks.RData",sep=""))
 	A[[ai]]=peaks
+	load(paste(path,ai,"_H3K27ac_background_peaks.RData",sep=""))
+	A[[ai]]=A[[ai]]-peaks
     }
     B=list()
     for (bi in b) {
 	load(paste(path,bi,"_H3K27ac_peaks.RData",sep=""))
 	B[[bi]]=peaks
+	load(paste(path,bi,"_H3K27ac_background_peaks.RData",sep=""))
+	B[[bi]]=B[[bi]]-peaks
+    
     }
+    print(a)
+    print(b)
     res=numeric(length(A[[1]]))
     for (i in 1:length(A[[1]])) {
         ar=rep(NA,length(A))
@@ -26,6 +33,11 @@ for (cell.i in 1:length(cells)){
 	for (j in 1:length(B)) br[j]=B[[j]][i]
     	res[i]=t.test(ar,br,alternative="greater")[[3]]
     }
-    enriched=p300.peaks[res<0.05,]
+    p300.peaks$res=res
+    s=p300.peaks[with(p300.peaks, order(res)),]
+    #enriched=p300.peaks[res<0.01,]
+    s$res=NULL
+    enriched=s[1:1000,]
+    
     write.table(enriched,quote=F,col.names=F,row.names=F,file=paste(cells[[cell.i]][1],"_enriched.bed",sep=""))
 }
