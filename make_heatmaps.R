@@ -1,0 +1,10 @@
+# pdf(file="heatmap_promoters.pdf",width=8,height=8)
+# load("rsquares_promoters.RData") 
+# heatmap(1.0-rqs,symm=T)
+# dev.off()
+
+#pdf(file="heatmap_active_tomek.pdf",width=8,height=8)
+#load("rsquares_enhancers.RData")
+load("rsquares_tomek_enhancers.RData") 
+heatmap(1.0-rqs,symm=T)
+#dev.off()
